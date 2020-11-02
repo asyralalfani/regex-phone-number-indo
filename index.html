@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Phone Number</title>
+
+    <style>
+        input[type=text] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        div {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <label for="phone_number">Phone Number</label>
+        <input type="text" id="phone_number" name="phone_number" placeholder="Phone Number" onkeyup="format_number()">
+    </div>
+
+    <script>
+        function format_number() {
+            var phone_number = document.getElementById("phone_number");
+            var regex_cell = /(\d{1})(\d{3})(\d{4})(\d{4})/g;
+            var new_value = phone_number.value.replace(regex_cell,"(+62) $2-$3-$4"); 
+            phone_number.value = new_value;
+        }
+    </script>
+</body>
+
+</html>
